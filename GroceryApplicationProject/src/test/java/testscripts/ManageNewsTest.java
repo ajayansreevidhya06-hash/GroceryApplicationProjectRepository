@@ -14,7 +14,7 @@ import utilities.FakerUtility;
 
 public class ManageNewsTest extends TestNGBase {
 
-	@Test(priority =1 ,description = "To create News")
+	@Test(priority =1 ,description = "Verify user is able to create new news")
 	public void verifyWhetherUserIsAbleToAddNews() throws IOException {
 
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
@@ -37,7 +37,7 @@ public class ManageNewsTest extends TestNGBase {
 
 	}
 
-	@Test(priority =2 ,description = "To Search News")
+	@Test(priority =2 ,description = "Verify user is able to search for News")
 	public void verifyWhetherUserIsAbleToSearchNews() throws IOException {
 
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
@@ -60,7 +60,7 @@ public class ManageNewsTest extends TestNGBase {
 
 	}
 
-	@Test(priority =3 ,description = "To Reset News Screen")
+	@Test(priority =3 ,description = "Verify user can reset news list")
 	public void verifyWhetherUserIsAbleToResetAfterNewsSearch() throws IOException {
 
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");

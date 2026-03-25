@@ -35,6 +35,7 @@ public class AdminUsersPage {
 	WebElement searchButtonClickAfterProvindingUserName;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='btn btn-rounded btn-warning']")
 	WebElement resetButton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement usercreatedSuccessfully;
 
 	public void toClickOnNewUserCreateButton() {
 		newUserButton.click();
@@ -71,5 +72,9 @@ public class AdminUsersPage {
 
 	public void toClickOnResetButton() {
 		resetButton.click();
+	}
+	
+	public boolean isUserCreatedSuccessfully() {
+		return usercreatedSuccessfully.isDisplayed();
 	}
 }

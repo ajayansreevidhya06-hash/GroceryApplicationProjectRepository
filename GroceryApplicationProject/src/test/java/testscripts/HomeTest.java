@@ -2,6 +2,7 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
@@ -21,7 +22,11 @@ public class HomeTest extends TestNGBase {
 		loginPageObject.clickOnSignInButton();
 		HomePage homePage = new HomePage(driver);
 		homePage.toClickOnAdminButton();
-		// homePage.clickOnLogOutButton();
+		homePage.clickOnLogOutButton();
+		
+		String actualLoginPageTitle=loginPageObject.getTextFromLoginPageTitle();
+		String expectedLoginPageTitle="7rmart supermarket";
+		Assert.assertEquals(actualLoginPageTitle, expectedLoginPageTitle,"User did not logout successfully");
 
 	}
 

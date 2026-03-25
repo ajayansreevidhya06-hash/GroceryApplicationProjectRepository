@@ -2,6 +2,7 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
@@ -41,6 +42,9 @@ public class AdminUsersTest extends TestNGBase {
 		adminPage.enterPasswordForNewUser(passwordForNewAdmin);
 		adminPage.toSelectUserTypeFromDropDown(userRoleType);
 		adminPage.toClickOnSaveButton();
+		//Assertion added
+		Boolean newUserCreatedmsgDisplayed=adminPage.isUserCreatedSuccessfully();
+		Assert.assertTrue(newUserCreatedmsgDisplayed, "New user did not create successfully");
 
 	}
 

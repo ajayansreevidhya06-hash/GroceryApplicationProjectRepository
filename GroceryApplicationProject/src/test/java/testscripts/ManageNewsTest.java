@@ -2,6 +2,7 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
@@ -34,6 +35,8 @@ public class ManageNewsTest extends TestNGBase {
 		manageNewsPage.toEnterNews(news);
 		manageNewsPage.toSaveNews();
 		// manageNewsPage.toEnterNews(news);
+		Boolean newsCreatedmsgDisplayed=manageNewsPage.isNewsCreatedMsgDisplayed();
+		Assert.assertTrue(newsCreatedmsgDisplayed, "News did not create successfully");
 
 	}
 

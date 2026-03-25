@@ -31,6 +31,7 @@ public class ManageNewsPage {
 	// Reset
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-warning']")
 	WebElement resetButtonOnNewsPage;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement newsCreatedMsg;
 
 	public void toClickOnNewsButtonToCreateNews() {
 		newButtonForNewsCreation.click();
@@ -60,5 +61,9 @@ public class ManageNewsPage {
 
 	public void toResetManageNewsScreen() {
 		resetButtonOnNewsPage.click();
+	}
+	public boolean isNewsCreatedMsgDisplayed() {
+		return newsCreatedMsg.isDisplayed();
+
 	}
 }

@@ -18,6 +18,8 @@ public WebDriver driver;
 		@FindBy(xpath="//input[@placeholder='Username']") WebElement usernameWebelement;
 		@FindBy(xpath="//input[@placeholder='Password']") WebElement passwordWebelement;
 		@FindBy(xpath="//button[text()='Sign In']") WebElement signInButtonWebelement;
+		@FindBy(xpath="//p[text()='Dashboard']") WebElement dashboardTile;
+		@FindBy(xpath="//b[text()='7rmart supermarket']") WebElement loginPageTitle;
 		
 		
 		public void enterUserNameOnUserNameField(String userNameValue)
@@ -34,5 +36,15 @@ public WebDriver driver;
 		public void clickOnSignInButton()
 		{
 			signInButtonWebelement.click();
+		}
+		
+		public boolean isDashboardDisplayed()
+		{
+			return dashboardTile.isDisplayed();
+		}
+		
+		public String getTextFromLoginPageTitle()
+		{
+			return loginPageTitle.getText();
 		}
 }

@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
+import constant.Constants;
 import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -44,7 +45,7 @@ public class AdminUsersTest extends TestNGBase {
 		adminPage.toClickOnSaveButton();
 		//Assertion added
 		Boolean newUserCreatedmsgDisplayed=adminPage.isUserCreatedSuccessfully();
-		Assert.assertTrue(newUserCreatedmsgDisplayed, "New user did not create successfully");
+		Assert.assertTrue(newUserCreatedmsgDisplayed, Constants.ERRORIFNONEWUSERCREATED);
 
 	}
 

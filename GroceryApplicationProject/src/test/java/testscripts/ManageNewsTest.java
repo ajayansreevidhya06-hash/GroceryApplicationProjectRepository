@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
+import constant.Constants;
 import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -36,7 +37,7 @@ public class ManageNewsTest extends TestNGBase {
 		manageNewsPage.toSaveNews();
 		// manageNewsPage.toEnterNews(news);
 		Boolean newsCreatedmsgDisplayed=manageNewsPage.isNewsCreatedMsgDisplayed();
-		Assert.assertTrue(newsCreatedmsgDisplayed, "News did not create successfully");
+		Assert.assertTrue(newsCreatedmsgDisplayed, Constants.ERRORIFNONEWSCREATED);
 
 	}
 

@@ -1,7 +1,9 @@
 package automationcore;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,17 +14,22 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import constant.Constants;
 import utilities.ScreenShotUtility;
 
 public class TestNGBase {
 
-	
+Properties prop;
+FileInputStream fs;
 public WebDriver driver;////WebDriver declaration ->WebDriver is a predefined interface
 	
 	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void browserLaunch(String browser) throws Exception
 	{
+		prop=new Properties();
+		fs=new FileInputStream(Constants.CONFIGFILE);
+		prop.load(fs);
 		if(browser.equalsIgnoreCase("chrome"))
 		{
 			driver=new ChromeDriver(); ////WebDriver Initialization
@@ -41,7 +48,8 @@ public WebDriver driver;////WebDriver declaration ->WebDriver is a predefined in
 		}
 		
 		//driver=new FirefoxDriver();
-		driver.get("https://groceryapp.uniqassosiates.com/admin");
+		//driver.get("https://groceryapp.uniqassosiates.com/admin");//now this url in config.prop file
+		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 

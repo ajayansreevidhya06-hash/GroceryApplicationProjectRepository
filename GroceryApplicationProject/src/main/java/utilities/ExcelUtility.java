@@ -8,6 +8,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import constant.Constants;
+
 public class ExcelUtility 
 {
 	
@@ -18,8 +20,9 @@ public class ExcelUtility
 	
 	//i=row j=column
 	public static String readStringData(int row,int column,String sheet) throws IOException
-	{
-		f=new FileInputStream("C:\\SREE_ECLIPSE_WORKSPACE\\groceryapplicationproject\\src\\test\\resources\\TestData.xlsx");
+	{                          
+		//f=new FileInputStream("C:\\Users\\manoj\\git\\GroceryApplicationProjectRepository\\GroceryApplicationProject\\src\\test\\resources\\TestData.xlsx");
+		f=new FileInputStream(Constants.TESTDATAFILE);
 		w=new XSSFWorkbook(f);
 		s=w.getSheet(sheet);    //predefined class   ////to fetch row
 		XSSFRow r=s.getRow(row);//non prim data type class ////to fetch column
@@ -30,7 +33,9 @@ public class ExcelUtility
 	
 	public static double readIntegerData(int row,int column,String sheet) throws IOException
 	{
-		f=new FileInputStream("C:\\SREE_ECLIPSE_WORKSPACE\\groceryapplicationproject\\src\\test\\resources\\TestData.xlsx");
+		//f=new FileInputStream("C:\\Users\\manoj\\git\\GroceryApplicationProjectRepository\\GroceryApplicationProject\\src\\test\\resources\\TestData.xlsx");
+		//path added in constants class
+		f=new FileInputStream(Constants.TESTDATAFILE);
 		w=new XSSFWorkbook(f);
 		s=w.getSheet(sheet);
 		XSSFRow r=s.getRow(row);     //non prim data type  ////to fetch row

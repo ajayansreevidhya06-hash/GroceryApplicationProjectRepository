@@ -22,20 +22,23 @@ public WebDriver driver;
 		@FindBy(xpath="//b[text()='7rmart supermarket']") WebElement loginPageTitle;
 		
 		
-		public void enterUserNameOnUserNameField(String userNameValue)
+		public LoginPage enterUserNameOnUserNameField(String userNameValue)
 		{
 			usernameWebelement.sendKeys(userNameValue);
+			return this;
 		}
 						
 		
-		public void enterPasswordeOnPasswordField(String passWordValue)
+		public LoginPage enterPasswordeOnPasswordField(String passWordValue)
 		{
 			passwordWebelement.sendKeys(passWordValue);
+			return this;
 		}
 		
-		public void clickOnSignInButton()
+		public HomePage clickOnSignInButton() //moving driver's control from login page to home page
 		{
 			signInButtonWebelement.click();
+			return new HomePage(driver);
 		}
 		
 		public boolean isDashboardDisplayed()

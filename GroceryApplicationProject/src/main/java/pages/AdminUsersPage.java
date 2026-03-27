@@ -7,8 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+import utilities.WaitUtility;
+
 public class AdminUsersPage {
 	public WebDriver driver;
+	WaitUtility waitUtility=new WaitUtility();
+	PageUtility pageUtility=new PageUtility();
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -37,41 +42,54 @@ public class AdminUsersPage {
 	WebElement resetButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement usercreatedSuccessfully;
 
-	public void toClickOnNewUserCreateButton() {
+	public AdminUsersPage toClickOnNewUserCreateButton() {
 		newUserButton.click();
+		return this;
 	}
 
-	public void enterUserNameForNewUser(String usrname) {
+	public AdminUsersPage enterUserNameForNewUser(String usrname) {
 		toEnterUserNameOnAdminUserPageForNewUser.sendKeys(usrname);
+		return this;
 	}
 
-	public void enterPasswordForNewUser(String pswd) {
+	public AdminUsersPage enterPasswordForNewUser(String pswd) {
 		toEnterPasswordOnAdminUserPageForNewUser.sendKeys(pswd);
+		return this;
 	}
 
-	public void toSelectUserTypeFromDropDown(String userType) {
-		Select select = new Select(userTypeDropDown);
-		select.selectByVisibleText(userType);
+	public AdminUsersPage toSelectUserTypeFromDropDown(String userType) {
+		//Select select = new Select(userTypeDropDown);
+		//select.selectByVisibleText(userType);
+		pageUtility.selectDropDownByVisibleText(userTypeDropDown, userType);
+		return this;
 	}
 
-	public void toClickOnSaveButton() {
+	public AdminUsersPage toClickOnSaveButton() {
+		
+		waitUtility.waitUntilElementToBeClickable(driver, saveButton);
 		saveButton.click();
+		return this;
 	}
 
-	public void toClickOnSearchButton() {
+	public AdminUsersPage toClickOnSearchButton() {
 		searchButton.click();
+		return this;
 	}
 
-	public void toInputUserNameForSearch(String userNametoSearch) {
+	public AdminUsersPage toInputUserNameForSearch(String userNametoSearch) {
 		usernameInSearchUsersBox.sendKeys(userNametoSearch);
+		return this;
 	}
 
-	public void toClickOnSearchButtonAfterProvidingUserName() {
+	public AdminUsersPage toClickOnSearchButtonAfterProvidingUserName() {
+		waitUtility.waitUntilElementToBeClickable(driver, searchButtonClickAfterProvindingUserName);
 		searchButtonClickAfterProvindingUserName.click();
+		return this;
 	}
 
-	public void toClickOnResetButton() {
+	public AdminUsersPage toClickOnResetButton() {
 		resetButton.click();
+		return this;
 	}
 	
 	public boolean isUserCreatedSuccessfully() {

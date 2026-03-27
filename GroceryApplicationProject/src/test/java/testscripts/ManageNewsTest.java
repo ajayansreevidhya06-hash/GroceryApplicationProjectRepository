@@ -15,22 +15,22 @@ import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class ManageNewsTest extends TestNGBase {
-
+HomePage homePage;
+ManageNewsPage manageNewsPage;
 	@Test(priority =1 ,description = "Verify user is able to create new news")
 	public void verifyWhetherUserIsAbleToAddNews() throws IOException {
 
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
+		homePage=loginPageObject.clickOnSignInButton();
 
-		HomePage homePage = new HomePage(driver);
-		homePage.toClickOnManageNewsMoreInfo();
+		//HomePage homePage = new HomePage(driver);
+		manageNewsPage=homePage.toClickOnManageNewsMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();
-		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
+		//ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toClickOnNewsButtonToCreateNews();
 		String news = fakerUtility.createRandomAddress();
 		manageNewsPage.toEnterNews(news);
@@ -47,11 +47,10 @@ public class ManageNewsTest extends TestNGBase {
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
+		homePage=loginPageObject.clickOnSignInButton();
 
-		HomePage homePage = new HomePage(driver);
+		//HomePage homePage = new HomePage(driver);
 		homePage.toClickOnManageNewsMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();
@@ -70,11 +69,9 @@ public class ManageNewsTest extends TestNGBase {
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
+		homePage=loginPageObject.clickOnSignInButton();
 
-		HomePage homePage = new HomePage(driver);
 		homePage.toClickOnManageNewsMoreInfo();
 		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toResetManageNewsScreen();

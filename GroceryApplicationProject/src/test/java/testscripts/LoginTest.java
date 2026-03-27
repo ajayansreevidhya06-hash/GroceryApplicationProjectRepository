@@ -10,19 +10,20 @@ import org.testng.annotations.Test;
 
 import automationcore.TestNGBase;
 import constant.Constants;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends TestNGBase {
+	HomePage home;
 	// Login Page -TestCase : 1
 	@Test(priority = 1, description = "Verify user is able to login with Valid credentials", groups = { "smoke" })
 	public void verifyUserLoginWithValidCredentials() throws IOException {
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
+		home=loginPageObject.clickOnSignInButton();
 		Boolean dashboardDisplay = loginPageObject.isDashboardDisplayed();
 		//Assert.assertTrue(dashboardDisplay, "User is unable to login with valid credentials");
 		//Assertion error msg from constants class
@@ -36,9 +37,11 @@ public class LoginTest extends TestNGBase {
 		String username = ExcelUtility.readStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		//loginPageObject.enterUserNameOnUserNameField(username);
+		//loginPageObject.enterPasswordeOnPasswordField(password);
+		//loginPageObject.clickOnSignInButton();
+		//Chaining of methods-As it is failed tc,driver control will remain in LoginPage itself
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password).clickOnSignInButton();
 		String actualLoginPageTitle = loginPageObject.getTextFromLoginPageTitle();
 		String expectedLoginPageTitle = "7rmart supermarket";
 		Assert.assertEquals(actualLoginPageTitle, expectedLoginPageTitle, Constants.ERRORFORINVALIDUSERNAMEANDVALIDPASSWORD);
@@ -50,9 +53,10 @@ public class LoginTest extends TestNGBase {
 		String username = ExcelUtility.readStringData(2, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(2, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		//loginPageObject.enterUserNameOnUserNameField(username);
+		//loginPageObject.enterPasswordeOnPasswordField(password);
+		//loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password).clickOnSignInButton();
 		Boolean dashboardDisplay = loginPageObject.isDashboardDisplayed();
 		Assert.assertFalse(dashboardDisplay, Constants.ERRORFORINVALIDUSERNAMEANDVALIDPASSWORD);
 	}
@@ -66,9 +70,10 @@ public class LoginTest extends TestNGBase {
 		// we are providing this data using @DataProvider
 		// String password=ExcelUtility.readStringData(3, 1, "LoginPage");
 		LoginPage loginPageObject = new LoginPage(driver);
-		loginPageObject.enterUserNameOnUserNameField(username);
-		loginPageObject.enterPasswordeOnPasswordField(password);
-		loginPageObject.clickOnSignInButton();
+		//loginPageObject.enterUserNameOnUserNameField(username);
+		//loginPageObject.enterPasswordeOnPasswordField(password);
+		//loginPageObject.clickOnSignInButton();
+		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password).clickOnSignInButton();
 		String actualLoginPageTitle = loginPageObject.getTextFromLoginPageTitle();
 		String expectedLoginPageTitle = "7rmart supermarket";
 		Assert.assertEquals(actualLoginPageTitle, expectedLoginPageTitle, Constants.ERRORFORINVALIDUSERNAMEANDINVALIDPASSWORD);

@@ -33,34 +33,41 @@ public class ManageNewsPage {
 	WebElement resetButtonOnNewsPage;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement newsCreatedMsg;
 
-	public void toClickOnNewsButtonToCreateNews() {
+	public ManageNewsPage toClickOnNewsButtonToCreateNews() {
 		newButtonForNewsCreation.click();
+		return this;
 	}
 
-	public void toEnterNews(String news) {
+	public ManageNewsPage toEnterNews(String news) {
 		newsIntoTextBox.sendKeys(news);
+		return this;
 
 	}
 
-	public void toSaveNews() {
+	public ManageNewsPage toSaveNews() {
 		saveButtonForEnteredNews.click();
+		return this;
 
 	}
 
-	public void toSearchNews() {
+	public ManageNewsPage toSearchNews() {
 		searchButtonClick.click();
+		return this;
 	}
 
-	public void toEnterNewsToSearch(String news) {
+	public ManageNewsPage toEnterNewsToSearch(String news) {
 		newsInSearchBox.sendKeys(news);
+		return this;
 	}
 
-	public void toClickOnSearchAfterProvidingNewsToSearch() {
+	public ManageNewsPage toClickOnSearchAfterProvidingNewsToSearch() {
 		searchButtonClickAfterenteringNewsToSearch.click();
+		return this;
 	}
 
-	public void toResetManageNewsScreen() {
+	public ManageNewsPage toResetManageNewsScreen() {
 		resetButtonOnNewsPage.click();
+		return this;
 	}
 	public boolean isNewsCreatedMsgDisplayed() {
 		return newsCreatedMsg.isDisplayed();

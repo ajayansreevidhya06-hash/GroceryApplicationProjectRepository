@@ -23,19 +23,23 @@ public class HomePage {
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")
 	WebElement manageNewsMoreInfo;
 
-	public void toClickOnAdminButton() {
+	public HomePage toClickOnAdminButton() {
 		adminOption.click();
+		return this;
 	}
 
-	public void clickOnLogOutButton() {
+	public LoginPage clickOnLogOutButton() {
 		logOutButton.click();
+		return new LoginPage(driver);
 	}
 
-	public void clickOnAdminUsersMoreInfo() {
+	public AdminUsersPage clickOnAdminUsersMoreInfo() {
 		adminUsersMoreInfo.click();
+		return new AdminUsersPage(driver);
 	}
 
-	public void toClickOnManageNewsMoreInfo() {
+	public ManageNewsPage toClickOnManageNewsMoreInfo() {
 		manageNewsMoreInfo.click();
+		return new ManageNewsPage(driver);
 	}
 }

@@ -64,7 +64,7 @@ public WebDriver driver;////WebDriver declaration ->WebDriver is a predefined in
  			ScreenShotUtility screenShot = new ScreenShotUtility(); 
  			screenShot.getScreenshot(driver, iTestResult.getName()); 
  		} 
- 		//driver.quit(); 
+ 		driver.quit(); 
   
  	}
 

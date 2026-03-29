@@ -54,7 +54,7 @@ ManageNewsPage manageNewsPage;
 		homePage.toClickOnManageNewsMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();
-		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
+		//ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toSearchNews();
 
 		String news = fakerUtility.createRandomAddress();
@@ -73,7 +73,7 @@ ManageNewsPage manageNewsPage;
 		homePage=loginPageObject.clickOnSignInButton();
 
 		homePage.toClickOnManageNewsMoreInfo();
-		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
+		//ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toResetManageNewsScreen();
 
 	}

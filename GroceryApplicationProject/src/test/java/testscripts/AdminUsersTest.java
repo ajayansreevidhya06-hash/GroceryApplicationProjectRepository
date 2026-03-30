@@ -65,6 +65,8 @@ public class AdminUsersTest extends TestNGBase {
 		adminPage.toClickOnSearchButton();
 		String userNameToSearch = ExcelUtility.readStringData(0, 2, "AdminUsersPage");
 		adminPage.toInputUserNameForSearch(userNameToSearch).toClickOnSearchButtonAfterProvidingUserName();
+		Boolean titleWhenClickOnSearchAdminUsersDisplayed = adminPage.isTitleDisplayedWhenClickOnSearchAdminUsers();
+		Assert.assertTrue(titleWhenClickOnSearchAdminUsersDisplayed, Constants.ERRORWHILESEARCHINGUSERS);
 
 	}
 
@@ -82,6 +84,8 @@ public class AdminUsersTest extends TestNGBase {
 
 		AdminUsersPage adminPage = new AdminUsersPage(driver);
 		adminPage.toClickOnResetButton();
+		String expectedUrl="https://groceryapp.uniqassosiates.com/admin/list-admin";
+		Assert.assertEquals(driver.getCurrentUrl(), expectedUrl,Constants.ERRORINRESETADMINPAGE);
 
 	}
 

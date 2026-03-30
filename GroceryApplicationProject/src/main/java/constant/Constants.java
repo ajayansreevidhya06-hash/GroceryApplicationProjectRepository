@@ -11,5 +11,8 @@ public class Constants {
 	public static final String ERRORIFLOGOUTFAILED="User did not logout successfully";
 	public static final String ERRORIFNONEWSCREATED= "News did not create successfully";
 	public static final String ERRORIFNONEWUSERCREATED="New user did not create successfully";
-
+	public static final String ERRORINSEARCHNEWSPAGE="News search page is not loaded";
+	public static final String ERRORINRESETNEWSPAGE="Page URL mismatch after reset in news page";
+	public static final String ERRORINRESETADMINPAGE="Page URL mismatch after reset in Admin Page";
+	public static final String ERRORWHILESEARCHINGUSERS="Error while searching user";
 }

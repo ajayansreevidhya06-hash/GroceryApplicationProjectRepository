@@ -41,6 +41,7 @@ public class AdminUsersPage {
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='btn btn-rounded btn-warning']")
 	WebElement resetButton;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']") WebElement usercreatedSuccessfully;
+	@FindBy(xpath="//h4[@class='card-title' and text()='Search Admin Users']") WebElement titleWhenClickOnSearchAdminUsers;
 
 	public AdminUsersPage toClickOnNewUserCreateButton() {
 		newUserButton.click();
@@ -94,5 +95,8 @@ public class AdminUsersPage {
 	
 	public boolean isUserCreatedSuccessfully() {
 		return usercreatedSuccessfully.isDisplayed();
+	}
+	public boolean isTitleDisplayedWhenClickOnSearchAdminUsers() {
+		return titleWhenClickOnSearchAdminUsers.isDisplayed();
 	}
 }

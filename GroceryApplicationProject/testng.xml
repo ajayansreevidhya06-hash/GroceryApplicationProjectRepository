@@ -6,7 +6,7 @@
   <parameter name ="browser" value="chrome"></parameter>
     <classes>
       <class name="testscripts.AdminUsersTest">
-      <methods><include name="verifyWhetherUserIsAbleToAddNewUser"></include></methods>
+      <methods><include name="verifyWhetherUserIsAbleToReset"></include></methods>
        </class>
       </classes>
   </test> <!-- Test -->

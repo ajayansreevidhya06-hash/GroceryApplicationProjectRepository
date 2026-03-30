@@ -26,7 +26,7 @@ ManageNewsPage manageNewsPage;
 		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
 		homePage=loginPageObject.clickOnSignInButton();
 
-		//HomePage homePage = new HomePage(driver);
+		HomePage homePage = new HomePage(driver);
 		manageNewsPage=homePage.toClickOnManageNewsMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();
@@ -51,16 +51,19 @@ ManageNewsPage manageNewsPage;
 		homePage=loginPageObject.clickOnSignInButton();
 
 		//HomePage homePage = new HomePage(driver);
-		homePage.toClickOnManageNewsMoreInfo();
+		manageNewsPage = homePage.toClickOnManageNewsMoreInfo();
 
 		FakerUtility fakerUtility = new FakerUtility();
-		//ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toSearchNews();
 
 		String news = fakerUtility.createRandomAddress();
 		manageNewsPage.toEnterNewsToSearch(news);
 		manageNewsPage.toClickOnSearchAfterProvidingNewsToSearch();
-
+	
+		String actualSearchPageTitle = manageNewsPage.searchNewsPageTitleToValidate();
+		String expectedSearchPageTitle = "Manage News";
+		Assert.assertEquals(actualSearchPageTitle, expectedSearchPageTitle, Constants.ERRORINSEARCHNEWSPAGE);
+	
 	}
 
 	@Test(priority =3 ,description = "Verify user can reset news list")
@@ -72,9 +75,13 @@ ManageNewsPage manageNewsPage;
 		loginPageObject.enterUserNameOnUserNameField(username).enterPasswordeOnPasswordField(password);
 		homePage=loginPageObject.clickOnSignInButton();
 
-		homePage.toClickOnManageNewsMoreInfo();
+		manageNewsPage=homePage.toClickOnManageNewsMoreInfo();
 		//ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.toResetManageNewsScreen();
+		
+		String actualResetPageTitle = manageNewsPage.resetNewsPageTitleToValidate();
+		String expectedResetPageTitle = "Manage News";
+		Assert.assertEquals(actualResetPageTitle, expectedResetPageTitle, Constants.ERRORINRESETNEWSPAGE);
 
 	}
 }
